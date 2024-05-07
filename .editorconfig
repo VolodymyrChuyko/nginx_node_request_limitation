@@ -11,6 +11,9 @@ insert_final_newline = true
 [{*.json, *.yml}]
 insert_final_newline = false
 
+[*.yml]
+indent_size = 2
+
 [*.md]
 indent_size = 3
 insert_final_newline = false

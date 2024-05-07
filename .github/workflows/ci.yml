@@ -1,0 +1,33 @@
+name: testing workflow
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, edited, reopened]
+    branches: [main]
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🔎 The job was triggered by a ${{ github.event_name }} event on the branch ${{ github.ref }}."
+
+      - name: get repository code
+        uses: actions/checkout@v4
+
+      - name: setup node version
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: static testing
+        run: npm run lint
+
+      - name: build & start
+        run: npm start
+
+      - name: integration testing
+        run: npm run test
