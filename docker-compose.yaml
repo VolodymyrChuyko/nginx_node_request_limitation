@@ -1,0 +1,18 @@
+services:
+    server:
+        image: node-server
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: node-server-container
+        ports:
+            - 3001:3001
+    nginx:
+        image: reverse-proxy
+        restart: always
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        container_name: reverse-proxy-container
+        ports:
+            - 3002:80
