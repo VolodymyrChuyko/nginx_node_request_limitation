@@ -7,7 +7,8 @@
         "build": "rm -rf build && tsc",
         "prestart": "npm run build",
         "start": "docker compose up -d",
-        "test": "bash ./tests/integration.test.sh",
+        "stop": "docker stop node-server-container && docker stop reverse-proxy-container && docker rm node-server-container reverse-proxy-container && docker rmi reverse-proxy:latest node-server:latest",
+        "test": "bash ./tests/index.sh",
         "lint": "npx eslint . --ignore-path .gitignore",
         "dev": "nodemon --watch src -e ts,ejs --exec npx ts-node src",
         "prepare": "husky install"
