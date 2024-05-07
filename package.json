@@ -7,7 +7,7 @@
         "build": "rm -rf build && tsc",
         "prestart": "npm run build",
         "start": "docker compose up -d",
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "bash ./tests/integration.test.sh",
         "lint": "npx eslint . --ignore-path .gitignore",
         "dev": "nodemon --watch src -e ts,ejs --exec npx ts-node src",
         "prepare": "husky install"
