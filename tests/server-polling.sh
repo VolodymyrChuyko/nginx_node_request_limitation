@@ -1,32 +1,5 @@
 #!/usr/bin/env bash
 
-expectToBeEqual()
-{
-    while [[ "$#" -gt 0 ]]
-        do
-            case $1 in
-                -e|--expected)
-                    local expected="$2"
-                    ;;
-                -r|--received)
-                    local received="$2"
-                    ;;
-            esac
-            shift
-        done
-
-    echo -e "\tExpected: $expected"
-    echo -e "\tReceived: $received"
-
-    if [[ $expected == $received ]]; then
-        echo -e "✅️ Ok\n"
-    else
-        echo -e "❌️ Failed\n"
-        exit 1
-    fi
-}
-
-serverPolling()
 {
     n=-1
     delay=-1
@@ -35,13 +8,13 @@ serverPolling()
         do
             case $1 in
                 -n|--number)
-                    local n="$2"
+                    n="$2"
                     ;;
                 -d|--delay)
-                    local delay="$2"
+                    delay="$2"
                     ;;
                 -u|--url)
-                    local url="$2"
+                    url="$2"
                     ;;
             esac
             shift
