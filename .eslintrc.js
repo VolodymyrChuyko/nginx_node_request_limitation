@@ -16,6 +16,10 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
     ],
+    ignorePatterns: [
+        'build',
+        'tests',
+    ],
     rules: {
         '@typescript-eslint/semi': ['error', 'always', { 'omitLastInOneLineBlock': true }],
         '@typescript-eslint/restrict-template-expressions': 'off',
