@@ -39,6 +39,9 @@ The first test version exits the process after any test fails so no further test
 
 This behavior was fixed in the second edition by employing the Jest testing framework (switch to `develop-testing-in-jest` branch to see changes). There is a bash script for polling endpoints in this version, but tests are running in Jest.
 
+#### Point for improvement
+- Tests must be independent (add before/after to run each test in a new environment)
+
 ### Github Actions workflow
 
 A Github Actions workflow ([ci.yml](./.github/workflows/ci.yml)) is implemented for test automation.

@@ -12,7 +12,7 @@ echo "smile-station should not have request limitation"
 
     expectToBeEqual --received "${result}" --expected "${expected}"
 
-echo "smile-station/1h should limit the request rate to 100/sec"
+echo "smile-station/1h should limit the request rate to 100/min"
     n=7
     delay=0.1
     url="http://localhost:3002/smile-station/1h"
@@ -22,7 +22,7 @@ echo "smile-station/1h should limit the request rate to 100/sec"
 
     expectToBeEqual --received "${result}" --expected "${expected}"
 
-echo "smile-station/1l should limit the request rate to 10/sec"
+echo "smile-station/1l should limit the request rate to 10/min"
     n=7
     delay=1.0
     url="http://localhost:3002/smile-station/1l"
